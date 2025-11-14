@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Home from './Pages/Home.jsx'
 import About from './Pages/About.jsx'
@@ -10,6 +10,7 @@ import Login from './Pages/Login.jsx';
 import PlaceOrder from './Pages/PlaceOrder.jsx';
 import Order from './Pages/Order.jsx';
 import Navbar from './Components/Navbar.jsx';
+import Footer from './Components/Footer.jsx';
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
           <Route path='/order' element={<Order />} />
 
         </Routes>
+
+        <Footer />
       
     </div>
   )
