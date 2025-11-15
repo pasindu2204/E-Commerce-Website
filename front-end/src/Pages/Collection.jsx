@@ -58,6 +58,7 @@ const Collection = () => {
   useEffect(() => {
     applyFilters();
   }, [categories, subCategories, products, sortType]);
+  
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 '>
