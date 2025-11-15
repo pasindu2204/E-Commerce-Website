@@ -8,7 +8,28 @@ const Collection = () => {
 
   const {products, ShowFilter, setShowFilter} = useContext(ShopContext);
   const [filterProducts, setFilterProducts] = useState([]);
-  
+  const [Category, setCategory] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
+
+              //   category array
+  const toggleCategory = (e) => {
+    if (Category.includes(e.target.value)) {
+      setCategory(prev => prev.filter(item => item !== e.target.value));
+    }
+    else {
+      setCategory(prev => [...prev, e.target.value]);
+    }
+  }
+
+        //  subCategory array
+  const toggleSubCategory = (e) => {
+    if (subCategory.includes(e.target.value)) {
+      setSubCategory(prev => prev.filter(item => item !== e.target.value));
+    }
+    else {
+      setSubCategory(prev => [...prev, e.target.value]);
+    }
+  }
 
 
 
