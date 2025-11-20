@@ -98,7 +98,7 @@ const handleAddToCart = () => {
                       ))
                     }
                   </div>
-                  <button onClick={handleAddToCart} className='bg-black w-1/4 text-white px-6 py-3 text-sm active:bg-gray-700'>Add to Cart</button>
+                  <button onClick={handleAddToCart} className='bg-black w-1/4 text-white px-6 py-3 text-sm active:bg-gray-700 cursor-pointer'>Add to Cart</button>
                   <hr className='mt-8 sm:w-4/5'/>
                   <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
                     <p>100% Original Products.</p>
