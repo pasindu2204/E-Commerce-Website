@@ -6,33 +6,43 @@ import RelativeProducts from '../Components/RelativeProducts';
 
 
 
+
 const Product = () => {
 
   const {productId} = useParams();
-  const {products, currency} = useContext(ShopContext);
+  const {products, currency, addToCart} = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
 
 
 
-  const fetchProductData = async () => {
-
-    products.map((item) => {
-      if (item._id === productId) {
-        setProductData(item);
-        setImage(item.image[0]);
-        return null;
-      }
-        
-    });
+  const fetchProductData = () => {
+  const item = products.find((p) => p._id === productId);
+  if (item) {
+    setProductData(item);
+    setImage(item.image[0]);
   }
+};
+
+
+const handleAddToCart = () => {
+  if (!size) {
+    alert("Please select a size");
+    return;
+  }
+  addToCart(productData._id, size);
+};
 
 
 
-  useEffect(() => {
+
+ useEffect(() => {
+  if (products.length > 0) {
     fetchProductData();
-  }, [ productId, products]);
+  }
+}, [productId, products]);
+
 
 
 
@@ -88,7 +98,7 @@ const Product = () => {
                       ))
                     }
                   </div>
-                  <button className='bg-black w-1/4 text-white px-6 py-3 text-sm active:bg-gray-700'>Add to Cart</button>
+                  <button onClick={handleAddToCart} className='bg-black w-1/4 text-white px-6 py-3 text-sm active:bg-gray-700'>Add to Cart</button>
                   <hr className='mt-8 sm:w-4/5'/>
                   <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
                     <p>100% Original Products.</p>

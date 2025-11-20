@@ -8,6 +8,7 @@ const Navbar = () => {
 
     // const [visible, setVisible] = useState(false);
     const { showSearch, setShowSearch } = useContext(ShopContext);
+    const { getCartCount } = useContext(ShopContext);
 
   return (
 
@@ -57,7 +58,7 @@ const Navbar = () => {
             <Link to='/cart' className='relative'>
                 <img src={assets.cart_icon} alt="Cart" className='w-5 cursor-pointer'/>
                 <p className='absolute -top-3 -right-3 w-5 h-5 rounded-full bg-black
-                 text-white aspect-square text-xs flex items-center justify-center'>10</p>
+                 text-white aspect-square text-xs flex items-center justify-center'>{getCartCount()}</p>
             </Link>
 
             {/* Dropdown Menu */}
