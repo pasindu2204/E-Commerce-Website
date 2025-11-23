@@ -1,4 +1,6 @@
 import {v2 as cloudinary} from 'cloudinary';
+import ProductModel from '../models/productModels.js';
+
 
 // function for add product
 
@@ -6,7 +8,7 @@ const addProduct = async (req, res) => {
 
     try {
 
-        const { name, description, price, category, subCategory, size, bestSeller } = req.body;
+        const { name, description, price, category, subCategory, sizes, bestSeller } = req.body;
 
         const image1 = req.files.image1 && req.files.image1[0];
         const image2 = req.files.image2 && req.files.image2[0];
@@ -27,10 +29,26 @@ const addProduct = async (req, res) => {
             })
         );
 
-        console.log(name, description, price, category, subCategory, size, bestSeller);
-        console.log(imagesUrl);
+        // save data MDB
 
-        res.json({ });
+        const productData = {
+            name,
+            description,
+            price: Number(price),
+            category,
+            subCategory,
+            sizes: typeof sizes === "string" ? JSON.parse(sizes) : sizes || [],
+            bestSeller: bestSeller === 'true' ? true : false,
+            images: imagesUrl,
+            date: Date.now()
+        };
+        console.log(productData);
+
+        const product = new ProductModel(productData);
+        await product.save();
+
+        res.json({ success: true, message: 'Product added successfully' });
+
     } catch (error) {
         console.log(error);
         res.json({ error: 'Internal server error' });
@@ -40,7 +58,17 @@ const addProduct = async (req, res) => {
 
 // function for list product
 
-const listProduct = (req, res) => {
+const listProduct =  async (req, res) => {
+
+    try {
+        const products = await ProductModel.find({});
+        res.json({ success: true, products });
+
+    } catch (error) {
+        
+          console.log(error);
+        res.json({ error: 'Internal server error' });
+    }
 
 }
 
