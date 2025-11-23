@@ -37,8 +37,8 @@ const addProduct = async (req, res) => {
             price: Number(price),
             category,
             subCategory,
-            sizes: typeof sizes === "string" ? JSON.parse(sizes) : sizes || [],
             bestSeller: bestSeller === 'true' ? true : false,
+            sizes: JSON.parse(sizes),
             images: imagesUrl,
             date: Date.now()
         };
@@ -74,7 +74,17 @@ const listProduct =  async (req, res) => {
 
 // function for remove product
 
-const removeProduct = (req, res) => {
+const removeProduct = async (req, res) => {
+
+    try {
+         
+        await ProductModel.findByIdAndDelete(req.body.id);
+        res.json({ success: true, message: 'Product removed successfully' });
+        
+    } catch (error) {
+        console.log(error);
+        res.json({ error: 'Internal server error' });
+    }
 
 }
 
