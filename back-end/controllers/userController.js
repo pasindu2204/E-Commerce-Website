@@ -81,6 +81,7 @@ const registerUser = async (req, res) => {
 };
 
             // route for admin
+
 const adminLogin = async (req, res) => {
 
 try {
