@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from './Component/Navbar.jsx';
 import Sidebar from './Component/Sidebar.jsx';
 import { Route, Routes } from 'react-router-dom';
@@ -13,7 +13,27 @@ export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
 
-  const [token, setToken] = useState('');
+
+  const [token, setToken] = useState(() => {
+    try {
+      return localStorage.getItem('token') || '';
+    } catch (e) {
+      return '';
+    }
+  });
+
+
+  useEffect(() => {
+    try {
+      if (token) {
+        localStorage.setItem('token', token);
+      } else {
+        localStorage.removeItem('token');
+      }
+    } catch (e) {
+      // ignore (e.g., running in non-browser environment)
+    }
+  }, [token]);
 
 
 
