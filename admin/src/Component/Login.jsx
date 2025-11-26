@@ -12,22 +12,21 @@ const onSubmitHandler  = async (e) => {
 
     try {
         e.preventDefault();
-        const response = await axios.post(backendUrl + '/api/admin/login', {
+        const response = await axios.post(`${backendUrl}/api/user/admin/login`, {
             email,
             password
         });
 
-        if (response.data.success === true) {
-               setToken(response.data.token);
+        if (response.data && response.data.success === true && response.data.token) {
+            try { localStorage.setItem('token', response.data.token); } catch (e) {}
+            if (typeof setToken === 'function') setToken(response.data.token);
+        } else {
+            toast.error(response.data?.message || 'Login failed');
         }
-        else {
-            toast.error(response.data.message);
-        }
-
 
     } catch (error) {
         console.log(error);
-        toast.error(error.message);
+        toast.error(error.message || 'Login error');
     }
 }
 
