@@ -10,6 +10,7 @@ import Login from './Component/Login.jsx';
 
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
+export const currency = '$';
 
 const App = () => {
 
