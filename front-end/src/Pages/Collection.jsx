@@ -58,6 +58,10 @@ const Collection = () => {
     setFilterProducts(productsCopy);
   }
 
+  useEffect(() => {
+    setFilterProducts(products);
+  }, []);
+
   // run whenever filters, products, or sort change
   useEffect(() => {
     applyFilters();
@@ -130,7 +134,8 @@ const Collection = () => {
                 id={item._id}
                 name={item.name}
                 price={item.price}
-                image={item.images ?? item.image}
+                image={item.image}
+                images={item.images}
               />
             ))
           }
