@@ -12,7 +12,7 @@ const onSubmitHandler  = async (e) => {
 
     try {
         e.preventDefault();
-        const response = await axios.post(`${backendUrl}/api/user/admin/login`, {
+        const response = await axios.post(`${backendUrl}/api/admin/login`, {
             email,
             password
         });

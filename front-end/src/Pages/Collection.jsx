@@ -61,7 +61,7 @@ const Collection = () => {
   // run whenever filters, products, or sort change
   useEffect(() => {
     applyFilters();
-  }, [categories, subCategories, products, sortType, search, showSearch]);
+  }, [categories, subCategories, products, sortType, search, showSearch, products]);
 
 
   return (
@@ -130,7 +130,7 @@ const Collection = () => {
                 id={item._id}
                 name={item.name}
                 price={item.price}
-                image={item.image}
+                image={item.images ?? item.image}
               />
             ))
           }

@@ -1,9 +1,11 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, use, useEffect, useState } from 'react';
 import { products } from '../assets/assets';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const ShopContext = createContext();
+let getProductsData = null;
 
 const ShopContextProvider = (props) => {
 
@@ -14,14 +16,12 @@ const ShopContextProvider = (props) => {
     const [showSearch, setShowSearch] = useState(false);
     const [cardItems, setCardItems] = useState({});
     const navigate = useNavigate();
-
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
+    
                         //  cartData
     const addToCart = async (itemId,size) => {
 
-        //   if (!size) {
-        //     toast.error("Please select a size");
-        //     return;
-        //   }
+       
 
         let cartData = structuredClone(cardItems);
 
@@ -53,7 +53,8 @@ const ShopContextProvider = (props) => {
                 }
 
             } catch (error) {
-                // ignore malformed entries
+                console.log(error);
+                toast.error('Error calculating cart count');
             }
               }
                }
@@ -85,11 +86,30 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     }
 
+    getProductsData = async () => {
+        try {
+            const response = await axios.get(backendUrl + '/api/product/list');
+            if(response.data.success){
+                setProducts(response.data.products);
+            }else{
+                toast.error(response.data.message);
+            };
+            
+        } catch (error) {
+           console.log(error);
+           toast.error('Error fetching products data');
+        }
+    }
+
+    useEffect(() => {
+        getProductsData();
+    }, []);
+
 
     const value = {
     products , currency , delivery_fees, ShowFilter, setShowFilter
     , search, setSearch, showSearch, setShowSearch, cardItems, setCardItems, addToCart, getCartCount
-    , updateQuantity, getCartAmount, navigate
+    , updateQuantity, getCartAmount, navigate, backendUrl
     }
 
     return (

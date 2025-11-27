@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {assets} from '../assets/assets';
 import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
@@ -18,7 +18,7 @@ const Navbar = () => {
         <ul className='hidden sm:flex items-center gap-5 text-sm text-gray-700'>
             <NavLink to='/' className='flex flex-col items-center gap-1'>
                 <p>HOME</p>
-                <hr className='w-2/4 h-[1.5px] bg-gray-700 hidden'/>
+                <hr className='w-1/2 h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
 
             <NavLink to='/collection' className='flex flex-col items-center gap-1'>
@@ -40,15 +40,16 @@ const Navbar = () => {
             {/* Search Icon */}
         <div className="flex items-center gap-6">
             <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="Search" className='w-5 cursor-pointer'/>
+
             {/* Profile Icon */}
 
             <div className='group relative'>
                <Link to='/login'><img src={assets.profile_icon} alt="User" className='w-5 cursor-pointer'/></Link> 
-                <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
-                    <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100
-                     text-gray-500 rounded'>
+                <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-5'>
+                    <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded'>
                         <p className='cursor-pointer hover:text-black'>My Profile</p>
-                        <Link to='/order'><p className='cursor-pointer hover:text-black'>Order</p></Link>
+                        <Link to='/order'>
+                        <p className='cursor-pointer hover:text-black'>Order</p></Link>
                         <p className='cursor-pointer hover:text-black'>Log Out</p>
                     </div>
                 </div>
@@ -64,8 +65,8 @@ const Navbar = () => {
             {/* Dropdown Menu */}
             <div className='group relative'>
             <img src={assets.menu_icon} alt="Menu" className='w-5 cursor-pointer sm:hidden relative'/>
-              <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
-                    <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100
+              <div className={`group-hover:block hidden absolute dropdown-menu right-0 pt-4`}>
+                    <div className='flex flex-col items-center gap-2 w-36 py-3 px-5 bg-slate-100
                      text-gray-500 rounded'>
                         <a href='/' className='cursor-pointer hover:text-black'>HOME</a>
                         <a href='/collection' className='cursor-pointer hover:text-black'>COLLECTION</a>

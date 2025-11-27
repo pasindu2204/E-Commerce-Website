@@ -11,29 +11,10 @@ const BestSeller = () => {
     const [bestSeller, setBestSeller] = useState([]);
 
    useEffect(() => {
-  if (!products) return;
 
-  // Always work with an array
-  const list = Array.isArray(products) ? products : Object.values(products);
-
-  // Normalize best-seller flags
-  const best = list.filter(item =>
-    item?.bestSeller ||
-    item?.bestseller ||
-    item?.best_seller ||
-    item?.isBestSeller ||
-    item?.tags?.includes('best')
-  );
-
-  // Choose best sellers or fallback
-  const finalList = best.length > 0 ? best : list;
-
-  // Take the first 5
-  setBestSeller(finalList.slice(0, 5));
-}, [products]);
-
-// ...existing code...
-
+    const bestProducts = products.filter(item =>(item.bestseller));
+    setBestSeller(bestProducts.slice(0,5));
+    }, []);
 
 
   return (
@@ -52,7 +33,7 @@ const BestSeller = () => {
                 <ProductItem
                   key={index}
                   id={item._id}
-                  image={item.image}
+                  image={item.images ?? item.image}
                   name={item.name}
                   price={item.price}
                 />
