@@ -16,14 +16,15 @@ const Product = () => {
   const [size, setSize] = useState('');
 
 
-
-  const fetchProductData = () => {
-  const item = products.find((p) => p._id === productId);
-  if (item) {
-    setProductData(item);
-    setImage(item.image[0]);
+  const fetchProductData = async  () => {
+    products.map((item)=> {
+      if(item._id === productId){
+        setProductData(item);
+        setImage(item.image[0]);
+        return null;
+      }
+    })
   }
-};
 
 
 const handleAddToCart = () => {

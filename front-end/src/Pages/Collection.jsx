@@ -15,21 +15,19 @@ const Collection = () => {
 
   // category array
   const toggleCategory = (e) => {
-    const val = e.target.value;
-    if (categories.includes(val)) {
-      setCategories(prev => prev.filter(item => item !== val));
+    if (categories.includes(e.target.value)) {
+      setCategories(prev => prev.filter(item => item !== e.target.value));
     } else {
-      setCategories(prev => [...prev, val]);
+      setCategories(prev=> [...prev,e.target.value]);
     }
   }
 
   // subCategory array
   const toggleSubCategory = (e) => {
-    const val = e.target.value;
-    if (subCategories.includes(val)) {
-      setSubCategories(prev => prev.filter(item => item !== val));
+    if (subCategories.includes(e.target.value)) {
+      setSubCategories(prev => prev.filter(item => item !== e.target.value));
     } else {
-      setSubCategories(prev => [...prev, val]);
+      setSubCategories(prev=> [...prev,e.target.value]);
     }
   }
 
@@ -135,7 +133,6 @@ const Collection = () => {
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                images={item.images}
               />
             ))
           }
