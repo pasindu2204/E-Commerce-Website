@@ -20,20 +20,20 @@ const {navigate} = useContext(ShopContext);
         </div>
 
         <div className='flex gap-3'>
-          <input type='text' placeholder='First Name' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
-          <input type='text' placeholder='Last Name' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
+          <input type='text' placeholder='First Name' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
+          <input type='text' placeholder='Last Name' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
         </div>
-         <input type='text' placeholder='e-mail address' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
-         <input type='text' placeholder='street' className='w-full border border-gray-300 px-3.5 py-1.5'/>
+         <input type='text' placeholder='e-mail address' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
+         <input type='text' placeholder='address' className='w-full border border-gray-700 px-3.5 py-1.5'/>
           <div className='flex gap-3'>
-          <input type='text' placeholder='City' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
-          <input type='text' placeholder='State' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
+          <input type='text' placeholder='City' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
+          <input type='text' placeholder='Province' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
         </div> 
          <div className='flex gap-3'>
-          <input type='number' placeholder='Zip Code' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
-          <input type='text' placeholder='Country' className='w-full border border-gray-300 px-3.5 py-1.5'/> 
+          <input type='number' placeholder='Postal Code' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
+          <input type='text' placeholder='Country' className='w-full border border-gray-700 px-3.5 py-1.5'/> 
         </div>
-        <input type='number' placeholder='phone' className='w-full border border-gray-300 px-3.5 py-1.5'/>
+        <input type='number' placeholder='phone' className='w-full border border-gray-700 px-3.5 py-1.5'/>
       </div>
 
 

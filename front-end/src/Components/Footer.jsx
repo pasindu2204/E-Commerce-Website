@@ -6,14 +6,17 @@ const Footer = () => {
     <div>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
         <div>
-            <img src={assets.logo} alt='logo' className='w-32 mb-5' />
-            <p className='w-full md:w-2/3 text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Totam, cumque? Accusantium, unde iure suscipit fuga repellat totam accusamus vel ad eos est quos obcaecati
-             delectus aliquid fugit blanditiis, porro nemo.</p>
+            <p> <span className='cookie-regular'>STYLISH</span>
+         <span className='gap-2 space-4'>young</span>
+         <span className='flex gap-1 text-3xl' >MAN</span></p>
+            <p className='w-full md:w-2/3 text-gray-800'>STYLISH young MAN 
+            offers high-quality men’s clothing designed for modern style, comfort,
+             and confidence. Shop our latest arrivals, best sellers, and 
+             premium collections all in one place.</p>
         </div>
         <div>
             <p className='text-xl font-medium mb-5'>COMPANY</p>
-            <ul className='flex flex-col gap-1 text-gray-600'>
+            <ul className='flex flex-col gap-1 text-gray-800'>
                 <li>Home</li>
                 <li>About Us</li>
                 <li>Delivery</li>
@@ -22,7 +25,7 @@ const Footer = () => {
         </div>
          <div>
             <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-            <ul className='flex flex-col gap-1 text-gray-600'>
+            <ul className='flex flex-col gap-1 text-gray-800'>
                 <li>011-8484959</li>
                 <li>contact@gmail.com</li>
             </ul>
@@ -31,7 +34,7 @@ const Footer = () => {
 
       </div>
        <hr />
-      <p className='text-center text-gray-600 py-5'>&copy; 2024 FOREVER Company. All rights reserved.</p>
+      <p className='text-center text-gray-800 py-5'>&copy; 2024 STYLISH young MAN Shop. All rights reserved.</p>
     </div>
   )
 }

@@ -101,7 +101,7 @@ const handleAddToCart = () => {
                   </div>
                   <button onClick={handleAddToCart} className='bg-black w-1/4 text-white px-6 py-3 text-sm active:bg-gray-700 cursor-pointer'>Add to Cart</button>
                   <hr className='mt-8 sm:w-4/5'/>
-                  <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+                  <div className='text-sm text-gray-800 mt-5 flex flex-col gap-1'>
                     <p>100% Original Products.</p>
                     <p>Cash on delivery is available on this Product.</p>
                     <p>Easy 7 days returns and exchanges.</p>
@@ -118,14 +118,12 @@ const handleAddToCart = () => {
            <b className='border px-5 py-3 text-sm'>Description</b>
            <p className='border px-5 py-3 text-sm'>Reviews (122)</p>
         </div>
-        <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
-          <p>Our e-commerce website is a complete online marketplace designed to deliver
-             a seamless buying experience. Customers can explore a wide range of products, 
-             compare options, and make secure purchases with confidence.</p> 
-             <p>The platform 
-             includes advanced search filters, high-quality product photos, real-time 
-             inventory updates, and safe payment processing. It is optimized for speed, 
-             performance, and reliability across all devices. </p>
+        <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-800'>
+          <p>This product is designed for everyday comfort and modern style. Made with 
+            high-quality materials, it offers a perfect fit and long-lasting durability.
+             Ideal for casual outings, work, or any occasion.</p> 
+             <p>A clean, stylish, and comfortable piece made for the modern man.
+               Designed with premium fabric and a perfect fit, this product keeps you looking sharp all day. </p>
         </div>
       </div>
 

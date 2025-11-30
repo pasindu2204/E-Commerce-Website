@@ -10,20 +10,19 @@ const BestSeller = () => {
     const { products } = useContext(ShopContext);
     const [bestSeller, setBestSeller] = useState([]);
 
-   useEffect(() => {
-
-    const bestProducts = products.filter(item =>(item.bestseller));
-    setBestSeller(bestProducts.slice(0,5));
-    }, []);
+    useEffect(() => {
+     const bestProduct = products.filter((item) => (item.bestSeller === true || item.bestseller === true));
+     setBestSeller(bestProduct.slice(0,5));
+     }, [products]);
 
 
   return (
 
-    <div className='my-10'>
+    <div className='my-10 bg-purple-300'>
         <div className='text-center text-3xl py-8'>
               <Title text1={'BEST'} text2={'SELLERS'}/>
-              <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-800'>
+                Shop the best-selling items that everyone is talking about and Top-rated products with the perfect balance of style and comfort.
               </p>
         </div>
 

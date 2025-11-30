@@ -12,34 +12,36 @@ const Navbar = () => {
 
   return (
 
-    <div className='flex items-center justify-between py-4 font-medium '>
-       <Link to='/'> <img src={assets.logo} alt="Logo" className='w-36 h-10'/></Link>
+    <div className='flex items-center justify-between py-4 font-medium bg-purple-300 px-4 md:px-8 lg:px-16 border-b'>
+       <Link to='/'><p> <span className='cookie-regular'>STYLISH</span>
+         <span className='gap-2 space-4'>young</span>
+         <span className='flex gap-1 text-3xl' >MAN</span></p></Link>
 
-        <ul className='hidden sm:flex items-center gap-5 text-sm text-gray-700'>
+        <ul className='hidden sm:flex items-center gap-5 text-md text-black'>
             <NavLink to='/' className='flex flex-col items-center gap-1'>
                 <p>HOME</p>
-                <hr className='w-1/2 h-[1.5px] bg-gray-700 hidden'/>
+                <hr className='w-3/4 h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
 
             <NavLink to='/collection' className='flex flex-col items-center gap-1'>
                 <p>COLLECTION</p>
-                <hr className='w-2/4 h-[1.5px] bg-gray-700 hidden'/>
+                <hr className='w-3/4 h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
 
             <NavLink to='/about' className='flex flex-col items-center gap-1'>
                 <p>ABOUT</p>
-                <hr className='w-2/4 h-[1.5px] bg-gray-700 hidden'/>
+                <hr className='w-3/4 h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
 
             <NavLink to='/contact' className='flex flex-col items-center gap-1'>
                 <p>CONTACT</p>
-                <hr className='w-2/4 h-[1.5px] bg-gray-700 hidden'/>
+                <hr className='w-3/4 h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
         </ul>
 
             {/* Search Icon */}
         <div className="flex items-center gap-6">
-            <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="Search" className='w-5 cursor-pointer'/>
+            <img onClick={() => setShowSearch(true)} src={assets.search_icon} alt="Search" className=' w-5 cursor-pointer'/>
 
             {/* Profile Icon */}
 

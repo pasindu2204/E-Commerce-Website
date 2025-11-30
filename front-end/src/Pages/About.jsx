@@ -13,16 +13,22 @@ const About = () => {
       <div className='my-10 flex flex-col md:flex-row gap-16'>
         <img src={assets.about_img} alt=" " className='w-full md:max-w-[450px]'  />
         <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-        <p>Our stores feature gently-used designer and brand-name clothing, shoes, and accessories. 
-          Whether you're hunting for that perfect little black dress, a statement handbag, 
-          or the latest trends, you'll find it all here at prices that make your heart (and wallet) sing. 
-          Plus, you can earn cash by selling us your gently loved fashions.</p>
+        <p>Welcome to STYLISH young MAN — your trusted destination for modern men’s fashion.</p>
 
-          <p>At Clothes Mentor, we're more than just a store – we're a community of like-minded fashion lovers.
-           From style tips and trend alerts to exclusive events and VIP perks, we keep our community close and our wardrobes closer.</p>
+<p>We believe that every man deserves to look confident, stylish, and comfortable every day.
+   That’s why we bring together high-quality clothing, fresh trends, and timeless designs all in one place. 
+   Our collection includes the latest arrivals, best sellers, and premium outfits designed to match 
+   every occasion — from casual wear to smart looks.</p>
+
+<p>At STYLISH young MAN, we focus on quality, value, and customer satisfaction. 
+  Every product is carefully selected to ensure durability, comfort, and a perfect fit. 
+  Whether you're upgrading your wardrobe or searching for your next favorite outfit, we are here to help you look your best.</p>
+ <p>Thank you for choosing STYLISH young MAN — where style meets confidence.</p>
+
            <b className='text-gray-500'>Our Mission</b>
-           <p>At Clothes Mentor, we believe fashion is more than just what you wear – it's a lifestyle, an expression of who you are,
-             and a journey of self-discovery. We're here to make that journey fabulous, effortless, and oh-so-stylish.</p>
+           <p>Our mission is to provide high-quality products at fair prices while making the shopping experience simple, 
+            trustworthy, and enjoyable for every customer in Sri Lanka. We aim to build long-term relationships
+             by offering value, reliability, and continuous improvement.</p>
         </div>
       </div>
 
@@ -33,21 +39,23 @@ const About = () => {
       <div className='flex flex-col md:flex-row text-sm mb-20 gap-2'>
         <div className='border px-5 md:px-8 py-4 sm:py-20 flex flex-col gap-5'>
           <b>Quality Assurance:</b>
-          <p>At Clothes Mentor, we're more than just a store – we're a community of like-minded fashion lovers.
-             From style tips and trend alerts to exclusive events and VIP perks,
-              we keep our community close and our wardrobes closer.</p>
+          <p>We carefully select and inspect every product to ensure it meets high standards. 
+            From sourcing to delivery, we follow strict quality checks so customers receive items 
+            that are durable, authentic, and exactly as described.</p>
         </div>
 
            <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
           <b>Convenience:</b>
-          <p>Shop brands and styles you love for up to 70% off. We bring you fashion at a fraction of the original price,
-             because every fashionista deserves a little luxe in her life.</p>
+          <p>We focus on making shopping as easy as possible. With smooth online ordering, 
+            multiple payment methods, fast delivery options, and a user-friendly experience, 
+            customers can enjoy a convenient and stress-free service anytime, anywhere.</p>
         </div>
 
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
           <b>Exceptional Customer Service:</b>
-          <p>Every item in our store is handpicked, meticulously inspected, and all luxury 
-            brands are authenticated by our style-savvy team, ensuring you get only the best.</p>
+          <p>We believe good service builds trust. Our support team is always ready to assist 
+            with questions, issues, or special requests. We respond quickly, handle concerns politely, 
+            and make sure every customer feels valued and supported.</p>
         </div>
 
       </div>

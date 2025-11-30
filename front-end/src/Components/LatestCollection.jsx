@@ -13,11 +13,11 @@ const LatestCollection = () => {
   }, []);
 
   return (
-    <div className='my-10'>
+    <div className='my-10 bg-purple-300'>
       <div className='text-center text-3xl py-8'>
         <Title text1={'LATEST'} text2={'COLLECTION'} />
-        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-800'>
+          Check out our newest arrivals made for modern men and Fresh styles just dropped — grab the latest trends now.
         </p>
       </div>
 
