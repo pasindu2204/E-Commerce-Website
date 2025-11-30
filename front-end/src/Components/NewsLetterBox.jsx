@@ -9,7 +9,7 @@ const NewsLetterBox = () => {
   return (
     <div className='text-center'>
       <p className='text-2xl font-medium text-gray-800'>Subscribe now & get 15% off your first order!</p>
-      <p className='text-gray-400 mt-3'>
+      <p className='text-gray-700 mt-3'>
         Sign up to our newsletter to receive updates on new arrivals, special offers, and other discount information.
       </p>
       <form onSubmit={onSubmitHandler} className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3'>

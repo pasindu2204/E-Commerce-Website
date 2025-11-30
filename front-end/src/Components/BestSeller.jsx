@@ -10,39 +10,19 @@ const BestSeller = () => {
     const { products } = useContext(ShopContext);
     const [bestSeller, setBestSeller] = useState([]);
 
-   useEffect(() => {
-  if (!products) return;
-
-  // Always work with an array
-  const list = Array.isArray(products) ? products : Object.values(products);
-
-  // Normalize best-seller flags
-  const best = list.filter(item =>
-    item?.bestSeller ||
-    item?.bestseller ||
-    item?.best_seller ||
-    item?.isBestSeller ||
-    item?.tags?.includes('best')
-  );
-
-  // Choose best sellers or fallback
-  const finalList = best.length > 0 ? best : list;
-
-  // Take the first 5
-  setBestSeller(finalList.slice(0, 5));
-}, [products]);
-
-// ...existing code...
-
+    useEffect(() => {
+     const bestProduct = products.filter((item) => (item.bestSeller === true || item.bestseller === true));
+     setBestSeller(bestProduct.slice(0,5));
+     }, [products]);
 
 
   return (
 
-    <div className='my-10'>
+    <div className='my-10 bg-purple-300'>
         <div className='text-center text-3xl py-8'>
               <Title text1={'BEST'} text2={'SELLERS'}/>
-              <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-800'>
+                Shop the best-selling items that everyone is talking about and Top-rated products with the perfect balance of style and comfort.
               </p>
         </div>
 
@@ -52,7 +32,7 @@ const BestSeller = () => {
                 <ProductItem
                   key={index}
                   id={item._id}
-                  image={item.image}
+                  image={item.images ?? item.image}
                   name={item.name}
                   price={item.price}
                 />

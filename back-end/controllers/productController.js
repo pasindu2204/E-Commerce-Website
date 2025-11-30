@@ -19,15 +19,17 @@ const addProduct = async (req, res) => {
 
         const images = [image1, image2, image3, image4].filter(item => item !== undefined);
         
-        // cloudinary upload for multiple images
-        
-         let imagesUrl = await Promise.all(
-            images.map
-            (async (item) => {
-                let result = await cloudinary.uploader.upload(item.path, {resource_type: "image"});
-                return result.secure_url;
-            })
-        );
+        // cloudinary upload for multiple images (only when images present)
+        let imagesUrl = [];
+        if (images.length > 0) {
+            imagesUrl = await Promise.all(
+                images.map(async (item) => {
+                    if (!item || !item.path) throw new Error('Uploaded file missing path');
+                    const result = await cloudinary.uploader.upload(item.path, { resource_type: 'image' });
+                    return result.secure_url;
+                })
+            );
+        }
 
         // save data MDB
 
@@ -38,7 +40,14 @@ const addProduct = async (req, res) => {
             category,
             subCategory,
             bestSeller: bestSeller === 'true' ? true : false,
-            sizes: JSON.parse(sizes),
+            sizes: (() => {
+                if (!sizes) return [];
+                try {
+                    return JSON.parse(sizes);
+                } catch (e) {
+                    throw new Error('Invalid sizes format: expected JSON array/string');
+                }
+            })(),
             images: imagesUrl,
             date: Date.now()
         };
@@ -50,8 +59,10 @@ const addProduct = async (req, res) => {
         res.json({ success: true, message: 'Product added successfully' });
 
     } catch (error) {
-        console.log(error);
-        res.json({ error: 'Internal server error' });
+        console.error('addProduct error ->', error);
+        const payload = { error: 'Internal server error' };
+        if (process.env.NODE_ENV !== 'production') payload.details = error.message;
+        return res.status(500).json(payload);
     }
 
 }
